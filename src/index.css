@@ -1,13 +1,517 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #ee9520;
+    line-height: 1.6;
+    width: 100%;
+    /* display: flex;*/
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    /* padding-bottom: 10px; */
+  }
+  .header {
+    width: 100%;
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    display: flex;
+    place-content: center;
+  }
+  
+  .footer {
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    display: grid;
+    place-content: center;
+    /* flex-shrink: 0; */
+  }
+  .container {
+    max-width: 768px;
+    margin: auto;
+    padding: 0 20px;
+  }
+  
+  
+  
+  .card {
+    background-color: #fff;
+    color: #333;
+    border-radius: 15px;
+    padding: 40px 50px;
+    margin: 20px 0;
+    position: relative;
+  }
+  
+  .text-display {
+    position: relative;
+    font-weight: bold;
+  }
+  
+  .btn {
+    color: rgb(12, 11, 11);
+    border: 0;
+    border-radius: 18px;
+    color: rgb(7, 7, 7);
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .delete,
+  .edit {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  .edit {
+    right: 40px;
+  }
+  
+  .item {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+  }
+  
+  .inputbox {
+    min-height: 48px;
+    font-size: 1rem;
+    padding: 0.25rem;
+    margin: 2%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .searchForm {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0.25rem 0 0;
+    border-radius: 15px;
+  }
+  
+  .searchForm label {
+    position: absolute;
+    left: -99999px;
+  }
+  
+  .searchForm input[type="text"] {
+    flex-grow: 1;
+    max-width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+    padding: 0.25rem;
+    border-radius: 15px;
+    outline: none;
+    margin-bottom: 10px;
+  }
+  
+  .links {
+    display: flex;
+    justify-content: space-evenly;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .navbar {
+    height: 85px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbarNav {
+    width: 100%;
+    margin-top: 0.75rem;
+    overflow-y: hidden;
+  }
+  
+  .navbarListItems {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .navbarListItem {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navbarListItemName,
+  .navbarListItemNameActive {
+    margin-top: 0.25rem;
+    font-size: 14px;
+    font-weight: 600;
+    color: #8f8f8f;
+  }
+  .navbarListItemNameActive {
+    color: #2c2c2c;
+  }
+  
+  .pageHeader {
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  .pageContainer{
+    margin: 1rem;
+  }
+  
+  .pageHeader {
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  .input,
+  .passwordInput,
+  .emailInput,
+  .nameInput,
+  .textarea {
+    box-shadow: rgba(0, 0, 0, 0.11);
+    border: none;
+    background: #ebc491;
+    border-radius: 3rem;
+    height: 3rem;
+    width: 100%;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 3rem;
+    font-size: 1rem;
+  }
+  @media (min-width: 1100px) {
+    .input,
+    .passwordInput,
+    .emailInput,
+    .nameInput,
+    .textarea {
+      padding: 0 5rem;
+    }
+  }
+  
+  .emailInput {
+    min-height: 40px;
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin: 0.5%;
+    border-radius: 15px;
+  }
+  
+  .nameInput {
+    min-height: 40px;
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin: 0.5%;
+    border-radius: 15px;
+  }
+  
+  .passwordInputDiv {
+    position: relative;
+  }
+  .passwordInput {
+    min-height: 40px;
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin: 0.5%;
+    border-radius: 15px;
+  }
+  
+  .showPassword {
+    cursor: pointer;
+    position: absolute;
+    top: -4%;
+    right: 1%;
+    padding: 1rem;
+  }
+  
+  .forgotPasswordLink {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+   color: #ebc491;
+   background-color: #000000;
+   font-weight: 600;
+   text-align: center;
+   /* margin-bottom: 3rem; */
+   padding: 0.50rem 3rem;
+   border-radius: 1rem;
+   float: right;
+  }
+  .signInBar,
+  .signUpBar {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: inherit;
+  }
+  .signInButton,
+  .signUpButton,
+  .signInText,
+  .signUpText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ebc491;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: #000000;
+    padding: 0.50rem 2rem;
+    border-radius: 1rem;
+  margin-top: 2rem;
+  }
+  @media (min-width: 1024px) {
+    .signInBar,
+    .signUpBar {
+      justify-content: start;
+    }
+  }
+  .registerLink {
+     margin-top: 1rem;
+     font-size: 1.25rem;
+     font-weight: 600;
+    color: #ebc491;
+    background-color: #000000;
+    font-weight: 600;
+    padding: 0.50rem 3rem;
+    border-radius: 1rem;
+  }
+  
+  .profile {
+    margin-bottom: 10rem;
+    padding: 2rem;
+  }
+  
+  .profileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logOut {
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+   color: #ebc491;
+   background-color: #000000;
+   font-weight: 600;
+   padding: 0.50rem 3rem;
+   border-radius: 1rem;
+  }
+  
+  .profileDetailsHeader {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+  }
+  
+  .personalDetailsText {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  
+  .changePersonalDetails {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #000000;
+    background-color: rgb(239, 232, 198);  
+    border-radius: 1rem;
+    max-width: 75px;
+    padding: 1rem
+  }
+  
+  .profileCard {
+    background-color: #ebc491;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  
+  .profileDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profileName,
+  .profileEmail,
+  .profileAddress,
+  .profileAddressActive,
+  .profileEmailActive,
+  .profileNameActive {
+    all: unset;
+    margin: 0.3rem 0;
+    font-weight: 600;
+    width: 100%;
+    height: 50px;  
+    background-color: rgb(255, 255, 255);
+    border-color: #000000;
+    border-radius: 1rem;
+    padding: 0.25rem;
+  }
+  .profileNameActive {
+    background-color: rgb(254, 254, 254);
+  }
+  w
+  .profileEmail,
+  .profileAddress,
+  .profileAddressActive,
+  .profileEmailActive {
+    font-weight: 500;
+  }
+  .profileEmailActive {
+    background-color: rgba(44, 44, 44, 0.1);
+  }
+  
+  .profileAddressActive {
+    background-color: rgba(44, 44, 44, 0.1);
+  }
+  
+  
+  @media (min-width: 1217px) {
+    .explore {
+      margin-bottom: 10rem;
+      margin: 3rem;
+    }
+  }
+  @media (max-height: 536) {
+    .explore {
+      margin-bottom: 10rem;
+    }
+  }
+  
+  .exploreHeading,
+  .exploreCategoryHeading {
+    font-size: 1.5rem;
+    font-weight: 1000;
+    justify-content: center;
+  }
+  .exploreCategoryImg {
+    min-height: 11px;
+    height: 10vw;
+    width: 50%;
+    border-radius: 1.5rem;
+    object-fit: cover;
+    margin: 0 auto;
+    margin-left: 5.25rem;
+    margin-top: 1rem;
+  }
+  .exploreCategoryName {
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align:center;
+  }
+  
+  .exploreCategories {
+    display: flex;
+    justify-content:space-between;
+  }
+  .exploreCategories a {
+    width: 48%;
+  }
+  .category {
+    margin: 3rem;
+    margin-bottom: 10rem;
+  }
+  
+  .categoryListings {
+    padding: 0;
+  }
+  
+  .categoryListing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .categoryListingLink {
+    display: contents;
+  }
+  
+  .categoryListingImg {
+    width: 30%;
+    height: 100px;
+    border-radius: 1.5rem;
+    object-fit: cover;
+  }
+  @media (min-width: 1024px) {
+    .categoryListingImg {
+      width: 19%;
+      height: 217px;
+    }
+  }
+  
+  .categoryListingDetails {
+    width: 65%;
+  }
+  @media (min-width: 1024px) {
+    .categoryListingDetails {
+      width: 79%;
+    }
+  }
+  
+  .categoryListingLocation {
+    font-weight: 600;
+    font-size: 0.7rem;
+    opacity: 0.8;
+    margin-bottom: 0;
+  }
+  
+  .categoryListingName {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+  
+  .categoryListingPrice {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #00cc66;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .categoryListingInfoDiv {
+    display: flex;
+    justify-content: space-between;
+    max-width: 275px;
+  }
+  
+  .categoryListingInfoText {
+    font-weight: 500;
+    font-size: 0.7rem;
+  }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+  .movieImg {
+    width: 80%;
+    height: 80;
+  }
